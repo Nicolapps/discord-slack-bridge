@@ -25,6 +25,6 @@ export const index = internalAction(async ({ runQuery, runMutation }) => {
       console.log(`(Re-)indexing thread ${doc.objectID}`);
       await index.saveObject(doc);
     }
-    await runMutation("indexing:setSearchIndex", { position });
+    await runMutation(api.indexing.setSearchIndex, { position });
   }
 });
