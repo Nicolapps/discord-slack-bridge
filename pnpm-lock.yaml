@@ -3,7 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@slack/web-api': ^6.8.1
   algoliasearch: ^4.17.0
-  convex: 0.17.0
+  convex: 0.17.0-alpha.1
   discord.js: ^14.9.0
   node-fetch: ^3.3.0
   prettier: ^2.8.4
@@ -12,7 +12,7 @@ specifiers:
 dependencies:
   '@slack/web-api': 6.8.1
   algoliasearch: 4.17.0
-  convex: 0.17.0
+  convex: 0.17.0-alpha.1
   discord.js: 14.9.0
   node-fetch: 3.3.1
   typescript: 5.0.3
@@ -293,7 +293,7 @@ packages:
       delayed-stream: 1.0.0
     dev: false
 
-  /convex/0.17.0:
+  /convex/0.17.0-alpha.1:
     resolution: {integrity: sha512-0FhwwIrJ2OxlWbmXQ8iaNpd1dER8c5RhwA+DG97UwPd0tOxfiuXinABDSYzdkmgfHrNG+ZYuf3/Sw6QdGIR2uA==}
     engines: {node: '>=16.15.1', npm: '>=7.0.0'}
     hasBin: true
