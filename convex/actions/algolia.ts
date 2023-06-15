@@ -1,8 +1,8 @@
 // Index discord into algolia
 "use node";
+import { api } from "../_generated/api";
 import algoliasearch from "algoliasearch";
 import { internalAction } from "../_generated/server";
-import { DiscordDocument } from "../indexing";
 
 export const ALGOLIA_APP_ID = "1KIE511890";
 export function getAlgolia() {
@@ -15,7 +15,7 @@ export const index = internalAction(async ({ runQuery, runMutation }) => {
   const index = algolia.initIndex(DISCORD_INDEX);
   while (true) {
     const { documents, position } = await runQuery(
-      "indexing:updatedSearchDocuments",
+      api.indexing.updatedSearchDocuments,
       {}
     );
     if (position == null) {

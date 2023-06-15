@@ -1,4 +1,5 @@
 "use node";
+import { api } from "../_generated/api";
 import { internalAction } from "../_generated/server";
 import { WebClient } from "@slack/web-api";
 
@@ -34,7 +35,7 @@ export const sendMessage = internalAction(
         icon_url: "https://cdn.discordapp.com/embed/avatars/2.png",
         mrkdwn: true,
       });
-      await runMutation("slack:startedThread", {
+      await runMutation(api.slack.startedThread, {
         threadId,
         threadTs: threadMsg.ts,
       });
@@ -47,7 +48,7 @@ export const sendMessage = internalAction(
       thread_ts: threadTs,
       mrkdwn: true,
     });
-    await runMutation("slack:sentMessage", {
+    await runMutation(api.slack.sentMessage, {
       messageId,
       messageTs: result.ts,
     });

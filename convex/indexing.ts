@@ -1,4 +1,4 @@
-import { Doc, Id } from "./_generated/dataModel";
+import { Doc } from "./_generated/dataModel";
 import {
   DatabaseReader,
   DatabaseWriter,
