@@ -6,6 +6,7 @@ import {
   serializeMessage,
   serializeThread,
 } from "./shared/discordUtils.js";
+import { anyApi } from "convex/server";
 
 const deploymentUrl = process.env.CONVEX_URL;
 if (!deploymentUrl) throw new Error("Specify CONVEX_URL as an env variable");
@@ -52,7 +53,7 @@ bot.on("messageCreate", async (msg) => {
   );
   // Upload to Convex
   try {
-    await convex.mutation("discord:receiveMessage", args);
+    await convex.mutation(anyApi.discord.receiveMessage, args);
   } catch (e) {
     console.error(e);
   }
@@ -65,7 +66,7 @@ bot.on("messageUpdate", async (oldMsg, newMsg) => {
   };
   console.log("update message " + newMsg.id);
   try {
-    await convex.mutation("discord:updateMessage", args);
+    await convex.mutation(anyApi.discord.updateMessage, args);
   } catch (e) {
     console.error(e);
   }
@@ -74,7 +75,7 @@ bot.on("messageUpdate", async (oldMsg, newMsg) => {
 bot.on("messageDelete", async (msg) => {
   console.log("delete message " + msg.id);
   try {
-    await convex.mutation("discord:deleteMessage", msg.toJSON());
+    await convex.mutation(anyApi.discord.deleteMessage, msg.toJSON());
   } catch (e) {
     console.error(e);
   }
@@ -87,7 +88,7 @@ bot.on("threadUpdate", async (oldThread, newThread) => {
   };
   console.log("update thread " + newThread.id);
   try {
-    await convex.mutation("discord:updateThread", args);
+    await convex.mutation(anyApi.discord.updateThread, args);
   } catch (e) {
     console.error(e);
   }
